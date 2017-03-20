@@ -24,9 +24,10 @@ public class GamePanel extends JPanel implements ActionListener {
 
     private void initBoard() {
 
-        addKeyListener(new TAdapter());
+        addKeyListener(new MyKeyAdapter());
         setFocusable(true);
-        setBackground(Color.BLACK);
+        setOpaque(true);
+//        setBackground(Color.BLACK);
 
         character = new Character();
 
@@ -45,7 +46,6 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     private void doDrawing(Graphics g) {
-
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(character.getImage(), character.getX(), character.getY(), this);
     }
@@ -56,7 +56,7 @@ public class GamePanel extends JPanel implements ActionListener {
         repaint();
     }
 
-    private class TAdapter extends KeyAdapter {
+    private class MyKeyAdapter extends KeyAdapter {
 
         @Override
         public void keyReleased(KeyEvent e) {

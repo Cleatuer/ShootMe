@@ -15,7 +15,8 @@ public class Character {
     private Image image;
 
     public Character() {
-        ImageIcon ii = new ImageIcon("/res/freeman.jpg");
+        ImageIcon ii = new ImageIcon("guenter.png");
+        System.out.println(ii.toString());
         image = ii.getImage();
         x = 40;
         y = 60;

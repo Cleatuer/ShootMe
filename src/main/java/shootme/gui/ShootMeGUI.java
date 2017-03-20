@@ -23,7 +23,6 @@ public class ShootMeGUI extends JFrame{
         add(new GamePanel());
         
         setSize(400, 300);
-        setResizable(false);
         
         setTitle("Moving character!");
         setLocationRelativeTo(null);
