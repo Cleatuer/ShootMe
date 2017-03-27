@@ -12,32 +12,38 @@ import javax.swing.JFrame;
  *
  * @author Nicole
  */
-public class ShootMeGUI extends JFrame{
-    
-    public ShootMeGUI() {
-        initGUI();
-    }
-    
-    private void initGUI() {
-        
-        add(new GamePanel());
-        
-        setSize(400, 300);
-        
-        setTitle("Moving character!");
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
+public class ShootMeGUI extends JFrame
+{
 
-    public static void main(String[] args) {
-        
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                
-                ShootMeGUI ex = new ShootMeGUI();
-                ex.setVisible(true);
-            }
-        });
-    }
+   public ShootMeGUI()
+   {
+      initGUI();
+   }
+
+   private void initGUI()
+   {
+
+      add(new GamePanel());
+
+      setSize(800, 600);
+
+      setTitle("Moving character!");
+      setLocationRelativeTo(null);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   }
+
+   public static void main(String[] args)
+   {
+
+      EventQueue.invokeLater(new Runnable()
+      {
+         @Override
+         public void run()
+         {
+
+            ShootMeGUI ex = new ShootMeGUI();
+            ex.setVisible(true);
+         }
+      });
+   }
 }

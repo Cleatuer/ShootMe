@@ -12,59 +12,73 @@ import java.awt.event.KeyEvent;
 /**
  * Created by Nicole on 20.03.2017
  */
-public class GamePanel extends JPanel implements ActionListener {
-    private Timer timer;
-    private Character character;
-    private final int DELAY = 1/30*1000;
+public class GamePanel extends JPanel implements ActionListener
+{
 
-    public GamePanel() {
+   private Timer timer;
+   private Character character;
+   private final int DELAY = 1 / 30 * 1000;
+   private int i = 0;
 
-        initBoard();
-    }
+   public GamePanel()
+   {
 
-    private void initBoard() {
+      initBoard();
+   }
 
-        addKeyListener(new MyKeyAdapter());
-        setFocusable(true);
-        setOpaque(true);
+   private void initBoard()
+   {
+
+      addKeyListener(new MyKeyAdapter());
+      setFocusable(true);
+      setOpaque(true);
 //        setBackground(Color.BLACK);
 
-        character = new Character();
+      character = new Character();
 
-        timer = new Timer(DELAY, this);
-        timer.start();
-    }
+      timer = new Timer(DELAY, this);
+      timer.start();
+   }
 
+   @Override
+   public void paintComponent(Graphics g)
+   {
 
-    @Override
-    public void paintComponent(Graphics g) {
+      doDrawing(g);
 
-        doDrawing(g);
+      Toolkit.getDefaultToolkit().sync();
+   }
 
-        Toolkit.getDefaultToolkit().sync();
-    }
+   private void doDrawing(Graphics g)
+   {
+      Graphics2D g2d = (Graphics2D) g;
+      g2d.drawImage(character.getImage(), i++, 0, null);
+      if (i > getWidth())
+      {
+         i = 0 - character.getImage().getWidth();
+      }
+   }
 
-    private void doDrawing(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(character.getImage(), 0, 0, null);
-    }
+   @Override
+   public void actionPerformed(ActionEvent e)
+   {
+      character.move();
+      paintComponent(getGraphics());
+   }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        character.move();
-        paintComponent(getGraphics());
-    }
+   private class MyKeyAdapter extends KeyAdapter
+   {
 
-    private class MyKeyAdapter extends KeyAdapter {
+      @Override
+      public void keyReleased(KeyEvent e)
+      {
+         character.keyReleased(e);
+      }
 
-        @Override
-        public void keyReleased(KeyEvent e) {
-            character.keyReleased(e);
-        }
-
-        @Override
-        public void keyPressed(KeyEvent e) {
-            character.keyPressed(e);
-        }
-    }
+      @Override
+      public void keyPressed(KeyEvent e)
+      {
+         character.keyPressed(e);
+      }
+   }
 }
