@@ -15,7 +15,7 @@ import java.awt.event.KeyEvent;
 public class GamePanel extends JPanel implements ActionListener {
     private Timer timer;
     private Character character;
-    private final int DELAY = 10;
+    private final int DELAY = 1/30*1000;
 
     public GamePanel() {
 
@@ -38,7 +38,6 @@ public class GamePanel extends JPanel implements ActionListener {
 
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
 
         doDrawing(g);
 
@@ -47,8 +46,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     private void doDrawing(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(character.getImage(), character.getImage().getWidth(this), character.getImage().getHeight(this), this);
-        g2d.drawLine(0, 0, 50, 50);
+        g2d.drawImage(character.getImage(), 0, 0, null);
     }
 
     @Override
