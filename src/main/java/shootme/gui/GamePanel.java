@@ -47,13 +47,14 @@ public class GamePanel extends JPanel implements ActionListener {
 
     private void doDrawing(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(character.getImage(), character.getX(), character.getY(), this);
+        g2d.drawImage(character.getImage(), character.getImage().getWidth(this), character.getImage().getHeight(this), this);
+        g2d.drawLine(0, 0, 50, 50);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         character.move();
-        repaint();
+        paintComponent(getGraphics());
     }
 
     private class MyKeyAdapter extends KeyAdapter {
