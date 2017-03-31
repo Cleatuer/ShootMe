@@ -74,7 +74,21 @@ public class GamePanel extends JPanel implements ActionListener
       @Override
       public void keyPressed(KeyEvent e)
       {
+          if(e.getKeyCode() == KeyEvent.VK_SPACE){
+              character.setDy(-1);
+              for (int i = 1; i < 100; i++){
+                  character.move();
+                  paintComponent(getGraphics());
+              }
+              character.setDy(1);
+              for (int i = 1; i < 100; i++){
+                  character.move();
+                  paintComponent(getGraphics());
+              }
+              character.setDy(0);
+          }
          character.keyPressed(e);
+         paintComponent(getGraphics());
       }
    }
 }
