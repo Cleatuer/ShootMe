@@ -17,12 +17,10 @@ public class GamePanel extends JPanel implements ActionListener
 
    private Timer timer;
    private Character character;
-   private final int DELAY = 1 /30 * 1000;
-   private int i = 0;
+   private final int DELAY = 1 / 30 * 1000;
 
    public GamePanel()
    {
-
       initBoard();
    }
 
@@ -32,7 +30,7 @@ public class GamePanel extends JPanel implements ActionListener
       addKeyListener(new MyKeyAdapter());
       setFocusable(true);
       setOpaque(true);
-//        setBackground(Color.BLACK);
+      setBackground(Color.WHITE);
 
       character = new Character();
 
@@ -52,11 +50,7 @@ public class GamePanel extends JPanel implements ActionListener
    private void doDrawing(Graphics g)
    {
       Graphics2D g2d = (Graphics2D) g;
-      g2d.drawImage(character.getImage(), i++, 0, null);
-      if (i > getWidth())
-      {
-         i = 0 - character.getImage().getWidth();
-      }
+      g2d.drawImage(character.getImage(), character.getX(), character.getY(), null);
    }
 
    @Override

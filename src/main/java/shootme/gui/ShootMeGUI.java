@@ -6,6 +6,7 @@
 package shootme.gui;
 
 import java.awt.EventQueue;
+import java.awt.GridLayout;
 import javax.swing.JFrame;
 
 /**
@@ -14,33 +15,33 @@ import javax.swing.JFrame;
  */
 public class ShootMeGUI extends JFrame
 {
-
+   
    public ShootMeGUI()
    {
       initGUI();
    }
-
+   
    private void initGUI()
    {
-
+      setLayout(new GridLayout(1, 1));
       add(new GamePanel());
-
-      setSize(800, 600);
-
+      
+      setSize(1280, 720);
+      
       setTitle("Moving character!");
       setLocationRelativeTo(null);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    }
-
+   
    public static void main(String[] args)
    {
-
+      
       EventQueue.invokeLater(new Runnable()
       {
          @Override
          public void run()
          {
-
+            
             ShootMeGUI ex = new ShootMeGUI();
             ex.setVisible(true);
          }

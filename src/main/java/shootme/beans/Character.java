@@ -26,8 +26,8 @@ public class Character
       {
          char fS = File.separatorChar;
          image = ImageIO.read(new File(System.getProperty("user.dir") + fS + "src" + fS + "main" + fS + "java" + fS + "shootme" + fS + "beans" + fS + "guenter.png"));
-         x = 40;
-         y = 60;
+         x = 0;
+         y = 0;
       }
       catch (IOException ex)
       {
