@@ -37,8 +37,7 @@ public class Character
       }
    }
 
-   public void move()
-   {
+   public void move(){
       x += dx;
 
       if (dx < 0)
@@ -54,7 +53,15 @@ public class Character
 
    }
 
-   public int getX()
+    public void setDx(int dx) {
+        this.dx = dx;
+    }
+
+    public void setDy(int dy) {
+        this.dy = dy;
+    }
+
+    public int getX()
    {
       return x;
    }
