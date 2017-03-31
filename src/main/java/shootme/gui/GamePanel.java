@@ -17,7 +17,7 @@ public class GamePanel extends JPanel implements ActionListener
 
    private Timer timer;
    private Character character;
-   private final int DELAY = 1 / 30 * 1000;
+   private final int DELAY = 1 /30 * 1000;
    private int i = 0;
 
    public GamePanel()
