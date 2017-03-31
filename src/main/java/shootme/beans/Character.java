@@ -16,16 +16,18 @@ public class Character
    private int dy;
    private int x;
    private int y;
+   private BufferedImage imageRight;
+   private BufferedImage imageLeft;
    private BufferedImage image;
 
-   ;
-
-    public Character()
+   public Character()
    {
       try
       {
          char fS = File.separatorChar;
-         image = ImageIO.read(new File(System.getProperty("user.dir") + fS + "src" + fS + "main" + fS + "java" + fS + "shootme" + fS + "beans" + fS + "guenter.png"));
+         imageRight = ImageIO.read(new File(System.getProperty("user.dir") + fS + "src" + fS + "main" + fS + "java" + fS + "shootme" + fS + "beans" + fS + "guenter_right.png"));
+         imageLeft = ImageIO.read(new File(System.getProperty("user.dir") + fS + "src" + fS + "main" + fS + "java" + fS + "shootme" + fS + "beans" + fS + "guenter_left.png"));
+         image = imageRight;
          x = 0;
          y = 0;
       }
@@ -38,7 +40,18 @@ public class Character
    public void move()
    {
       x += dx;
+
+      if (dx < 0)
+      {
+         image = imageLeft;
+      }
+      else if (dx > 0)
+      {
+         image = imageRight;
+      }
+
       y += dy;
+
    }
 
    public int getX()
