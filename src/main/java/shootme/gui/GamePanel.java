@@ -51,7 +51,7 @@ public class GamePanel extends JPanel implements ActionListener
    {
       Graphics2D g2d = (Graphics2D) g;
       g2d.setColor(Color.white);
-      //g2d.drawRect(character.getX(), character.getY(), character.getImage().getWidth(), character.getImage().getHeight());
+      g2d.drawRect(character.getX(), character.getY(), character.getImage().getWidth(), character.getImage().getHeight());
       character.move();
       g2d.drawImage(character.getImage(), character.getX(), character.getY(), null);
    }
